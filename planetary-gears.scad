@@ -10,7 +10,7 @@ module planetary_gears (
     rim_thickness = 10,
     rim_width = 999,
     gear_thickness = 5,
-    twist = 200,
+    twist = 600,
     bore_diameter = 14,
     clearance = 0.2,
     backlash = 0.2,
