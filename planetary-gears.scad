@@ -15,7 +15,7 @@ module planetary_gears (
     clearance = 0.2,
     backlash = 0.2,
 
-    number_of_planets = 8,
+    number_of_planets = 4,
 
     sun_teeth = 20,
     ring_teeth = 36,
