@@ -12,8 +12,8 @@ module planetary_gears (
     gear_thickness = 5,
     twist = 400,
     bore_diameter = 14,
-    clearance = 0.25,
-    backlash = 0.25,
+    clearance = 0.4,
+    backlash = 0.3,
 
     number_of_planets = 4,
 
