@@ -22,7 +22,6 @@ module herringbone_gear (
 {
     module helical_gear()
     {
-        echo (number_of_teeth);
         gear (
             number_of_teeth = number_of_teeth,
             circular_pitch = circular_pitch,
