@@ -1,7 +1,7 @@
 use <MCAD/involute_gears.scad>
 use <ruler.scad>
 
-function convert_circular_pitch (circular_pitch) = 4 * 180 / PI;
+function convert_circular_pitch (circular_pitch) = circular_pitch * 180 / PI;
 
 module herringbone_gear (
     number_of_teeth=15,
@@ -54,3 +54,9 @@ herringbone_gear (
     twist = 20,
     $fn = 100
 );
+
+%cylinder (
+    r = ((7 * 30) / (2 * PI)),
+    h = 20);
+
+xyzruler ();
