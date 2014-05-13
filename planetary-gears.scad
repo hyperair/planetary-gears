@@ -10,7 +10,7 @@ module planetary_gears (
     rim_thickness = 10,
     rim_width = 999,
     gear_thickness = 5,
-    twist = 20,
+    twist = 200,
     bore_diameter = 10,
 
     number_of_planets = 6,
@@ -38,7 +38,7 @@ module planetary_gears (
             rim_thickness = rim_thickness,
             rim_width = rim_width,
             gear_thickness = gear_thickness,
-            twist = twist,
+            twist = twist / number_of_teeth,
             number_of_teeth = number_of_teeth
         );
     }
