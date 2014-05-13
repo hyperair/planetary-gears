@@ -6,14 +6,14 @@ $fs = 1;
 
 module planetary_gears (
     circular_pitch = 3,
-    hub_thickness = 10,
-    rim_thickness = 10,
+    hub_thickness = 5,
+    rim_thickness = 5,
     rim_width = 999,
     gear_thickness = 5,
-    twist = 600,
+    twist = 400,
     bore_diameter = 14,
-    clearance = 0.2,
-    backlash = 0.2,
+    clearance = 0.25,
+    backlash = 0.25,
 
     number_of_planets = 4,
 
