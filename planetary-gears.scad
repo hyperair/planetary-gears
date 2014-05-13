@@ -13,9 +13,9 @@ module planetary_gears (
     twist = 200,
     bore_diameter = 10,
 
-    number_of_planets = 6,
+    number_of_planets = 5,
 
-    sun_teeth = 16,
+    sun_teeth = 20,
     ring_teeth = 30,
     ring_outer_diameter = 80)
 {
