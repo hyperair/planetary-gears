@@ -73,9 +73,16 @@ module planetary_gears (
         echo ("Planet pitch radius: ", planet_pitch_radius);
         echo ("Ring pitch radius: ", pitch_radius (circular_pitch, ring_teeth));
 
-        for (angle = [0:360/number_of_planets:359.99]) {
-            rotate ([0, 0, angle])
+        // 0th tooth is at 0° from the X-axis, and we're translating along X.
+        // This allows us to match the first trough with the sun gear's 0th
+        // tooth.
+        first_trough_angle = 180 + 360 / planet_pitch_radius / 2;
+
+        for (orbit_angle = [0:360/number_of_planets:359.99]) {
+            rotate ([0, 0, orbit_angle])
             translate ([sun_pitch_radius + planet_pitch_radius, 0, 0])
+            rotate ([0, 0, (first_trough_angle +
+                        orbit_angle / planet_teeth * sun_teeth)])
             planet ();
         }
     }
