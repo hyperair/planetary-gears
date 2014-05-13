@@ -12,6 +12,8 @@ module planetary_gears (
     gear_thickness = 5,
     twist = 200,
     bore_diameter = 30,
+    clearance = 0.4,
+    backlash = 0.4,
 
     number_of_planets = 5,
 
@@ -42,6 +44,8 @@ module planetary_gears (
         rim_width = rim_width,
         gear_thickness = gear_thickness,
         twist = twist,
+        clearance = clearance,
+        backlash = backlash,
         number_of_teeth = 0)
     {
         herringbone_gear (
@@ -52,7 +56,9 @@ module planetary_gears (
             rim_width = rim_width,
             gear_thickness = gear_thickness,
             twist = twist / number_of_teeth,
-            number_of_teeth = number_of_teeth
+            number_of_teeth = number_of_teeth,
+            clearance = clearance,
+            backlash = backlash
         );
     }
 
@@ -115,7 +121,9 @@ module planetary_gears (
                     gear_thickness = rim_thickness,
                     number_of_teeth = ring_teeth,
                     bore_diameter = 0,
-                    twist = -twist
+                    twist = -twist,
+                    clearance = -clearance,
+                    backlash = -backlash
                 );
             }
         }
