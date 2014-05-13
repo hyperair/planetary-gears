@@ -21,6 +21,19 @@ module planetary_gears (
 {
     planet_teeth = (ring_teeth - sun_teeth) / 2;
 
+    if (floor (planet_teeth) != planet_teeth) {
+        echo (
+            "ERROR: planet_teeth == ", planet_teeth,
+            " which is not a round number!");
+    }
+
+    if ((sun_teeth + ring_teeth) % number_of_planets != 0) {
+        echo (
+            "ERROR: sun_teeth + ring_teeth is not divisible by ",
+            "number_of_planets.");
+        echo ("ERROR: Planet gear will not mesh with the ring.");
+    }
+
     module single_gear (
         bore_diameter = 0,
         circular_pitch = circular_pitch,
