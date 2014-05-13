@@ -8,7 +8,7 @@ module planetary_gears (
     circular_pitch = 7,
     hub_thickness = 10,
     rim_thickness = 10,
-    rim_width = 1,
+    rim_width = 999,
     gear_thickness = 5,
     twist = 20,
     bore_diameter = 10,
