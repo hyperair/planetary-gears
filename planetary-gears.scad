@@ -11,7 +11,7 @@ module planetary_gears (
     rim_width = 999,
     gear_thickness = 5,
     twist = 200,
-    bore_diameter = 10,
+    bore_diameter = 30,
 
     number_of_planets = 5,
 
