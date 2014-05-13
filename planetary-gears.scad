@@ -46,12 +46,14 @@ module planetary_gears (
         twist = twist,
         clearance = clearance,
         backlash = backlash,
+        hub_diameter = 0,
         number_of_teeth = 0)
     {
         herringbone_gear (
             bore_diameter = bore_diameter,
             circular_pitch = convert_circular_pitch (circular_pitch),
             hub_thickness = hub_thickness,
+            hub_diameter = hub_diameter,
             rim_thickness = rim_thickness,
             rim_width = rim_width,
             gear_thickness = gear_thickness,
@@ -75,7 +77,7 @@ module planetary_gears (
         single_gear (
             number_of_teeth = planet_teeth,
             twist = -twist,
-            hub_thickness = 0,
+            hub_diameter = 0,
             bore_diameter = 0);
     }
 
