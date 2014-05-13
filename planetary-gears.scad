@@ -83,6 +83,12 @@ module planetary_gears (
         (circular_pitch * number_of_teeth) /
         (2 * PI));
 
+    function planet_rotation (
+        first_trough_angle, orbit_angle, sun_planet_ratio) = (
+        180 + first_trough_angle + orbit_angle * sun_planet_ratio);
+
+    function first_trough_angle (planet_teeth) = 360 / planet_teeth / 2;
+
     module all_planets ()
     {
         sun_pitch_radius = pitch_radius (circular_pitch, sun_teeth);
@@ -95,19 +101,30 @@ module planetary_gears (
         // 0th tooth is at 0° from the X-axis, and we're translating along X.
         // This allows us to match the first trough with the sun gear's 0th
         // tooth.
-        first_trough_angle = 180 + 360 / planet_pitch_radius / 2;
+        first_trough_angle = 180 + 360 / planet_teeth / 2;
 
         for (orbit_angle = [0:360/number_of_planets:359.99]) {
+            echo ("orbit: ", orbit_angle);
             rotate ([0, 0, orbit_angle])
             translate ([sun_pitch_radius + planet_pitch_radius, 0, 0])
-            rotate ([0, 0, (first_trough_angle +
-                        orbit_angle / planet_teeth * sun_teeth)])
+            rotate (
+                [
+                    0, 0,
+                    planet_rotation (
+                        first_trough_angle (planet_teeth),
+                        orbit_angle,
+                        sun_teeth / planet_teeth)])
             planet ();
         }
     }
 
     module ring ()
     {
+        planet0_rotation = planet_rotation (
+            orbit_angle = 0,
+            first_trough_angle = first_trough_angle (planet_teeth),
+            sun_planet_ratio = sun_teeth / planet_teeth);
+
         render () {
             difference () {
                 cylinder (
@@ -115,6 +132,7 @@ module planetary_gears (
                     h = rim_thickness,
                     center = true);
 
+                rotate ([0, 0, planet0_rotation * planet_teeth / ring_teeth])
                 single_gear (
                     hub_thickness = rim_thickness,
                     rim_thickness = rim_thickness,
