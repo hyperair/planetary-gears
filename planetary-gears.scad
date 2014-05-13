@@ -5,7 +5,7 @@ $fa = 5;
 $fs = 1;
 
 module planetary_gears (
-    circular_pitch = 7,
+    circular_pitch = 3.5,
     hub_thickness = 10,
     rim_thickness = 10,
     rim_width = 999,
@@ -17,8 +17,8 @@ module planetary_gears (
 
     number_of_planets = 5,
 
-    sun_teeth = 20,
-    ring_teeth = 30,
+    sun_teeth = 40,
+    ring_teeth = 60,
     ring_outer_diameter = 80)
 {
     planet_teeth = (ring_teeth - sun_teeth) / 2;
