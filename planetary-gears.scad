@@ -109,14 +109,14 @@ module planetary_gears (
 
         for (orbit_angle = [0:360/number_of_planets:359.99]) {
             echo ("orbit: ", orbit_angle);
-            rotate ([0, 0, orbit_angle])
+            rotate ([0, 0, orbit_angle + $t * 360])
             translate ([sun_pitch_radius + planet_pitch_radius, 0, 0])
             rotate (
                 [
                     0, 0,
                     planet_rotation (
                         first_trough_angle (planet_teeth),
-                        orbit_angle,
+                        orbit_angle + $t * 360,
                         sun_teeth / planet_teeth)])
             planet ();
         }
@@ -124,8 +124,9 @@ module planetary_gears (
 
     module ring ()
     {
+        planet0_angle = $t * 360;
         planet0_rotation = planet_rotation (
-            orbit_angle = 0,
+            orbit_angle = planet0_angle,
             first_trough_angle = first_trough_angle (planet_teeth),
             sun_planet_ratio = sun_teeth / planet_teeth);
 
@@ -135,7 +136,7 @@ module planetary_gears (
                 h = rim_thickness,
                 center = true);
 
-            rotate ([0, 0, planet0_rotation * planet_teeth / ring_teeth])
+            rotate ([0, 0, planet0_rotation * planet_teeth / ring_teeth + planet0_angle])
             single_gear (
                 hub_thickness = 0,
                 gear_thickness = 0,
