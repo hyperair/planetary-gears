@@ -47,7 +47,8 @@ module planetary_gears (
         clearance = clearance,
         backlash = backlash,
         hub_diameter = 0,
-        number_of_teeth = 0)
+        number_of_teeth = 0,
+        internal = false)
     {
         herringbone_gear (
             bore_diameter = bore_diameter,
@@ -60,7 +61,8 @@ module planetary_gears (
             twist = twist / number_of_teeth,
             number_of_teeth = number_of_teeth,
             clearance = clearance,
-            backlash = backlash
+            backlash = backlash,
+            internal = internal
         );
     }
 
@@ -127,25 +129,21 @@ module planetary_gears (
             first_trough_angle = first_trough_angle (planet_teeth),
             sun_planet_ratio = sun_teeth / planet_teeth);
 
-        render () {
-            difference () {
-                cylinder (
-                    d = ring_outer_diameter,
-                    h = rim_thickness,
-                    center = true);
+        intersection () {
+            cylinder (
+                d = ring_outer_diameter,
+                h = rim_thickness,
+                center = true);
 
-                rotate ([0, 0, planet0_rotation * planet_teeth / ring_teeth])
-                single_gear (
-                    hub_thickness = rim_thickness,
-                    rim_thickness = rim_thickness,
-                    gear_thickness = rim_thickness,
-                    number_of_teeth = ring_teeth,
-                    bore_diameter = 0,
-                    twist = -twist,
-                    clearance = -clearance,
-                    backlash = -backlash
-                );
-            }
+            rotate ([0, 0, planet0_rotation * planet_teeth / ring_teeth])
+            single_gear (
+                hub_thickness = 0,
+                gear_thickness = 0,
+                number_of_teeth = ring_teeth,
+                bore_diameter = 0,
+                twist = -twist,
+                internal = true
+            );
         }
     }
 

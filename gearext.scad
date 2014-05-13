@@ -18,7 +18,8 @@ module herringbone_gear (
     backlash=0,
     twist=0,
     involute_facets=0,
-    flat=false)
+    flat=false,
+    internal=false)
 {
     module helical_gear()
     {
@@ -37,7 +38,8 @@ module herringbone_gear (
             backlash = backlash,
             twist = twist / 2,
             involute_facets = involute_facets,
-            flat = flat);
+            flat = flat,
+            internal = internal);
     }
 
     helical_gear ();
