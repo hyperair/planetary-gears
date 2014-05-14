@@ -130,13 +130,15 @@ module planetary_gears (
             first_trough_angle = first_trough_angle (planet_teeth),
             sun_planet_ratio = sun_teeth / planet_teeth);
 
+        rotate ([0, 0,
+                 planet0_rotation * planet_teeth /
+                 ring_teeth + planet0_angle])
         intersection () {
             cylinder (
                 d = ring_outer_diameter,
                 h = rim_thickness,
                 center = true);
 
-            rotate ([0, 0, planet0_rotation * planet_teeth / ring_teeth + planet0_angle])
             single_gear (
                 hub_thickness = 0,
                 gear_thickness = 0,
