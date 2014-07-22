@@ -13,7 +13,7 @@ module planetary_gears (
     twist = 800,
     bore_diameter = 5,
     clearance = 0.4,
-    backlash = 0.3,
+    backlash = 0.5,
 
     number_of_planets = 3,
 
