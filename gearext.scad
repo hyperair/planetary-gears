@@ -1,4 +1,4 @@
-use <MCAD/involute_gears.scad>
+use <MCAD/gears/involute_gears.scad>
 use <ruler.scad>
 
 function convert_circular_pitch (circular_pitch) = circular_pitch * 180 / PI;
@@ -19,6 +19,7 @@ module herringbone_gear (
     twist=0,
     involute_facets=0,
     flat=false,
+    roundsize=1,
     internal=false)
 {
     module helical_gear()
@@ -39,6 +40,7 @@ module herringbone_gear (
             twist = twist / 2,
             involute_facets = involute_facets,
             flat = flat,
+            roundsize = roundsize,
             internal = internal);
     }
 
