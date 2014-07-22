@@ -147,7 +147,6 @@ module planetary_gears (
                 number_of_teeth = ring_teeth,
                 bore_diameter = 0,
                 twist = -twist,
-                roundsize = 0,
                 internal = true
             );
         }
