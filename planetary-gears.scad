@@ -48,6 +48,7 @@ module planetary_gears (
         backlash = backlash,
         hub_diameter = 0,
         number_of_teeth = 0,
+        roundsize = 1,
         internal = false)
     {
         herringbone_gear (
@@ -62,6 +63,7 @@ module planetary_gears (
             number_of_teeth = number_of_teeth,
             clearance = clearance,
             backlash = backlash,
+            roundsize = roundsize,
             internal = internal
         );
     }
@@ -145,6 +147,7 @@ module planetary_gears (
                 number_of_teeth = ring_teeth,
                 bore_diameter = 0,
                 twist = -twist,
+                roundsize = 0,
                 internal = true
             );
         }
