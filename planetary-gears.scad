@@ -17,8 +17,8 @@ module planetary_gears (
 
     number_of_planets = 3,
 
-    sun_teeth = 11,
-    ring_teeth = 27,
+    sun_teeth = 13,
+    ring_teeth = 29,
     ring_outer_diameter = 60)
 {
     planet_teeth = (ring_teeth - sun_teeth) / 2;
