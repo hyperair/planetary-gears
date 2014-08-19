@@ -10,7 +10,7 @@ module planetary_gears (
     rim_thickness = 10,
     rim_width = 999,
     gear_thickness = 10,
-    twist = 800,
+    helix_angle = 30,
     bore_diameter = 5,
     clearance = 0.4,
     backlash = 0.5,
@@ -43,7 +43,7 @@ module planetary_gears (
         rim_thickness = rim_thickness,
         rim_width = rim_width,
         gear_thickness = gear_thickness,
-        twist = twist,
+        helix_angle = helix_angle,
         clearance = clearance,
         backlash = backlash,
         hub_diameter = 0,
@@ -59,7 +59,7 @@ module planetary_gears (
             rim_thickness = rim_thickness,
             rim_width = rim_width,
             gear_thickness = gear_thickness,
-            twist = twist / number_of_teeth,
+            helix_angle = helix_angle,
             number_of_teeth = number_of_teeth,
             clearance = clearance,
             backlash = backlash,
@@ -80,7 +80,7 @@ module planetary_gears (
     {
         single_gear (
             number_of_teeth = planet_teeth,
-            twist = -twist,
+            helix_angle = -helix_angle,
             hub_diameter = 0,
             bore_diameter = 0);
     }
@@ -146,7 +146,7 @@ module planetary_gears (
                 gear_thickness = 0,
                 number_of_teeth = ring_teeth,
                 bore_diameter = 0,
-                twist = -twist,
+                helix_angle = -helix_angle,
                 internal = true
             );
         }
